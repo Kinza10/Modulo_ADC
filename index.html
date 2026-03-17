@@ -1,171 +1,432 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Modulo ADC Project</title>
+
+<title>Modulo Sampling ADC for Passive Radar</title>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f4f4f4;
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Segoe UI;
 }
 
-header {
-    background: #0a3d62;
-    color: white;
-    text-align: center;
-    padding: 30px;
+body{
+background:#020617;
+color:white;
+overflow-x:hidden;
 }
 
-section {
-    padding: 30px;
-    margin: 20px;
-    background: white;
-    border-radius: 10px;
+/* HERO */
+
+.hero{
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+position:relative;
+background:radial-gradient(circle at center,#0f172a,#020617);
 }
 
-h2 {
-    color: #0a3d62;
+.hero h1{
+font-size:3.5rem;
+background:linear-gradient(90deg,#00f2fe,#4facfe);
+-webkit-background-clip:text;
+color:transparent;
 }
 
-.team {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 20px;
-    text-align: center;
+.hero p{
+margin-top:15px;
+font-size:1.2rem;
+color:#94a3b8;
 }
 
-.member {
-    background: #ecf0f1;
-    padding: 15px;
-    border-radius: 10px;
+.hero button{
+margin-top:30px;
+padding:14px 30px;
+border:none;
+border-radius:30px;
+background:#00d4ff;
+color:black;
+font-weight:bold;
+cursor:pointer;
 }
 
-.member img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
+.hero button:hover{
+transform:scale(1.1);
 }
 
-footer {
-    text-align: center;
-    padding: 15px;
-    background: #0a3d62;
-    color: white;
+/* sections */
+
+section{
+padding:100px 10%;
 }
+
+h2{
+color:#38bdf8;
+margin-bottom:25px;
+font-size:2rem;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+}
+
+.card{
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.1);
+border-radius:12px;
+padding:30px;
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 15px 35px rgba(0,200,255,.2);
+}
+
+/* pipeline */
+
+.pipeline{
+display:flex;
+justify-content:space-between;
+flex-wrap:wrap;
+gap:20px;
+}
+
+.stage{
+flex:1;
+min-width:160px;
+text-align:center;
+padding:20px;
+background:rgba(0,200,255,.1);
+border:1px solid rgba(0,200,255,.3);
+border-radius:10px;
+}
+
+/* simulation */
+
+.sim-box{
+background:rgba(255,255,255,.05);
+padding:30px;
+border-radius:10px;
+}
+
+/* team */
+
+.team-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:25px;
+}
+
+.member{
+text-align:center;
+background:rgba(255,255,255,.05);
+padding:25px;
+border-radius:10px;
+transition:.3s;
+}
+
+.member:hover{
+transform:translateY(-8px);
+}
+
+.avatar{
+width:80px;
+height:80px;
+border-radius:50%;
+background:#334155;
+margin:auto;
+margin-bottom:12px;
+}
+
+footer{
+text-align:center;
+padding:40px;
+background:#020617;
+color:#64748b;
+}
+
 </style>
+
 </head>
 
 <body>
 
-<header>
-    <h1>Modulo ADC</h1>
-    <p>Project Website</p>
+
+<!-- HERO -->
+
+<header class="hero">
+
+<div>
+
+<h1>Modulo Sampling ADC</h1>
+
+<p>High Dynamic Range ADC Architecture for Passive Radar</p>
+
+<button onclick="scrollToSection()">Explore Project</button>
+
+</div>
+
 </header>
 
-<section>
-    <h2>Project Title</h2>
-    <p><b>Modulo Analog-to-Digital Converter (ADC)</b></p>
+
+<!-- PROBLEM -->
+
+<section id="problem">
+
+<h2>The Problem</h2>
+
+<div class="grid">
+
+<div class="card">
+
+<h3>Limited Dynamic Range</h3>
+
+<p>
+Traditional ADCs clip signals when input amplitude exceeds reference voltage.
+This causes information loss in wideband signal acquisition systems.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Passive Radar Challenge</h3>
+
+<p>
+Passive radar receives signals from broadcast transmitters which vary
+greatly in amplitude. Conventional ADCs require extremely high resolution
+and power to capture these signals accurately.
+</p>
+
+</div>
+
+</div>
+
 </section>
 
-<section>
-    <h2>Abstract</h2>
-    <p>
-        This project focuses on the design and implementation of a Modulo ADC system.
-        The system converts analog signals into digital form efficiently using modular techniques.
-        It aims to improve accuracy, speed, and reliability in signal processing applications.
-    </p>
-</section>
+
+<!-- SOLUTION -->
 
 <section>
-    <h2>Team Members</h2>
-    <div class="team">
 
-        <div class="member">
-            <img src="https://via.placeholder.com/100">
-            <p>Member 1</p>
-        </div>
+<h2>Our Solution</h2>
 
-        <div class="member">
-            <img src="https://via.placeholder.com/100">
-            <p>Member 2</p>
-        </div>
+<div class="card">
 
-        <div class="member">
-            <img src="https://via.placeholder.com/100">
-            <p>Member 3</p>
-        </div>
+<p>
 
-        <div class="member">
-            <img src="https://via.placeholder.com/100">
-            <p>Member 4</p>
-        </div>
+Our design uses a <b>Modulo Sampling ADC architecture</b>.
+A comparator detects when the input exceeds reference limits,
+then a feedback loop folds the signal back into the safe voltage range.
 
-        <div class="member">
-            <img src="https://via.placeholder.com/100">
-            <p>Member 5</p>
-        </div>
+The number of folds is tracked digitally and later used to
+reconstruct the original high-dynamic-range signal.
 
-        <div class="member">
-            <img src="https://via.placeholder.com/100">
-            <p>Member 6</p>
-        </div>
+</p>
 
-        <div class="member">
-            <img src="https://via.placeholder.com/100">
-            <p>Member 7</p>
-        </div>
+</div>
 
-        <div class="member">
-            <img src="https://via.placeholder.com/100">
-            <p>Member 8</p>
-        </div>
-
-        <div class="member">
-            <img src="https://via.placeholder.com/100">
-            <p>Member 9</p>
-        </div>
-
-        <div class="member">
-            <img src="https://via.placeholder.com/100">
-            <p>Member 10</p>
-        </div>
-
-        <div class="member">
-            <img src="https://via.placeholder.com/100">
-            <p>Member 11</p>
-        </div>
-
-    </div>
 </section>
+
+
+<!-- PIPELINE -->
 
 <section>
-    <h2>Supervisors</h2>
-    <div class="team">
 
-        <div class="member">
-            <img src="https://via.placeholder.com/100">
-            <p>Supervisor 1</p>
-        </div>
+<h2>Analog Modulo Processing Pipeline</h2>
 
-        <div class="member">
-            <img src="https://via.placeholder.com/100">
-            <p>Supervisor 2</p>
-        </div>
+<div class="pipeline">
 
-        <div class="member">
-            <img src="https://via.placeholder.com/100">
-            <p>Supervisor 3</p>
-        </div>
+<div class="stage">📡<br>Input Signal</div>
 
-    </div>
+<div class="stage">⚡<br>Comparator Trigger</div>
+
+<div class="stage">🔄<br>Modulo Folding</div>
+
+<div class="stage">📉<br>ADC Quantization</div>
+
+<div class="stage">🧩<br>Digital Reconstruction</div>
+
+</div>
+
 </section>
+
+
+<!-- SIMULATION -->
+
+<section>
+
+<h2>ADC Simulation</h2>
+
+<div class="sim-box">
+
+<canvas id="adcChart"></canvas>
+
+</div>
+
+</section>
+
+
+<!-- SUPERVISORS -->
+
+<section>
+
+<h2>Project Supervisors</h2>
+
+<div class="team-grid">
+
+<div class="member">
+<div class="avatar"></div>
+<h4>Dr. Khurram Javed</h4>
+</div>
+
+<div class="member">
+<div class="avatar"></div>
+<h4>Dr. Hassan Saif</h4>
+</div>
+
+<div class="member">
+<div class="avatar"></div>
+<h4>Prof. Dr. Rashad Ramzan</h4>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- TEAM -->
+
+<section>
+
+<h2>Contributors</h2>
+
+<div class="team-grid">
+
+<div class="member"><div class="avatar"></div><h4>Babar Bhutta</h4></div>
+<div class="member"><div class="avatar"></div><h4>Faisal Shahkar</h4></div>
+<div class="member"><div class="avatar"></div><h4>Fatima Akhtar</h4></div>
+<div class="member"><div class="avatar"></div><h4>Immama Arif</h4></div>
+<div class="member"><div class="avatar"></div><h4>Kinza Noreen</h4></div>
+<div class="member"><div class="avatar"></div><h4>Muhammad Arham</h4></div>
+<div class="member"><div class="avatar"></div><h4>Muhammad Umair</h4></div>
+<div class="member"><div class="avatar"></div><h4>Muhammad Zuhair</h4></div>
+<div class="member"><div class="avatar"></div><h4>Wasif Mehmood</h4></div>
+<div class="member"><div class="avatar"></div><h4>Zaki-ul-Hassan</h4></div>
+<div class="member"><div class="avatar"></div><h4>Zohaib Saleem</h4></div>
+
+</div>
+
+</section>
+
 
 <footer>
-    <p>© 2026 Modulo ADC Project</p>
+
+FAST NUCES — Modulo Sampling ADC Project © 2026
+
 </footer>
+
+
+<script>
+
+/* smooth scroll */
+
+function scrollToSection(){
+
+document.querySelector("#problem").scrollIntoView({
+behavior:"smooth"
+})
+
+}
+
+/* ADC simulation */
+
+const ctx = document.getElementById('adcChart')
+
+let x = 0
+
+const input=[]
+const folded=[]
+const quantized=[]
+
+for(let i=0;i<120;i++){
+
+let s = Math.sin(i*0.2)*4
+
+input.push(s)
+
+let vref=1.5
+
+let f = ((s + vref) % (2*vref)) - vref
+
+folded.push(f)
+
+let q = Math.round(f*4)/4
+
+quantized.push(q)
+
+}
+
+new Chart(ctx,{
+
+type:'line',
+
+data:{
+labels:input.map((_,i)=>i),
+datasets:[
+
+{
+label:'Input Signal',
+data:input,
+borderColor:'#ff4d4d',
+borderWidth:2
+},
+
+{
+label:'Modulo Folded',
+data:folded,
+borderColor:'#00f2fe',
+borderWidth:2
+},
+
+{
+label:'ADC Quantized',
+data:quantized,
+borderColor:'#00ff9c',
+borderWidth:2
+}
+
+]
+},
+
+options:{
+responsive:true,
+plugins:{
+legend:{labels:{color:'white'}}
+},
+scales:{
+x:{ticks:{color:'white'}},
+y:{ticks:{color:'white'}}
+}
+}
+
+})
+
+</script>
+
 
 </body>
 </html>
