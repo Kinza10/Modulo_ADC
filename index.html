@@ -21,7 +21,6 @@ font-family:Segoe UI;
 body{
 background:linear-gradient(to bottom,#ffffff,#d9f3ff);
 color:#0f172a;
-overflow-x:hidden;
 }
 
 /* HERO */
@@ -60,10 +59,6 @@ cursor:pointer;
 box-shadow:0 8px 20px rgba(0,150,255,.3);
 }
 
-.hero button:hover{
-transform:scale(1.1);
-}
-
 /* sections */
 
 section{
@@ -73,7 +68,6 @@ padding:100px 10%;
 h2{
 color:#0077b6;
 margin-bottom:25px;
-font-size:2rem;
 }
 
 /* cards */
@@ -87,23 +81,15 @@ gap:25px;
 .card{
 background:#ffffffdd;
 backdrop-filter:blur(8px);
-border:1px solid #cceeff;
 border-radius:14px;
 padding:30px;
-transition:.3s;
 box-shadow:0 10px 25px rgba(0,150,255,.1);
-}
-
-.card:hover{
-transform:translateY(-10px) scale(1.02);
-box-shadow:0 20px 40px rgba(0,150,255,.25);
 }
 
 /* pipeline */
 
 .pipeline{
 display:flex;
-justify-content:space-between;
 flex-wrap:wrap;
 gap:20px;
 }
@@ -114,9 +100,7 @@ min-width:160px;
 text-align:center;
 padding:20px;
 background:linear-gradient(135deg,#e0f7ff,#c2f0ff);
-border:1px solid #7dd3fc;
 border-radius:12px;
-font-weight:500;
 }
 
 /* simulation */
@@ -150,13 +134,22 @@ transform:translateY(-10px);
 box-shadow:0 15px 35px rgba(0,150,255,.25);
 }
 
+/* UPDATED AVATAR */
+
 .avatar{
-width:80px;
-height:80px;
+width:110px;
+height:110px;
 border-radius:50%;
-background:linear-gradient(135deg,#a5e9ff,#67d8ff);
+object-fit:cover;
 margin:auto;
 margin-bottom:12px;
+border:3px solid #00c6ff;
+box-shadow:0 6px 18px rgba(0,150,255,.3);
+transition:.3s;
+}
+
+.member:hover .avatar{
+transform:scale(1.1);
 }
 
 /* footer */
@@ -189,19 +182,12 @@ color:#1e293b;
 
 <div class="card">
 <h3>Limited Dynamic Range</h3>
-<p>
-Traditional ADCs clip signals when input amplitude exceeds reference voltage.
-This causes information loss in wideband signal acquisition systems.
-</p>
+<p>Traditional ADCs clip signals when input exceeds limits.</p>
 </div>
 
 <div class="card">
 <h3>Passive Radar Challenge</h3>
-<p>
-Passive radar receives signals from broadcast transmitters which vary
-greatly in amplitude. Conventional ADCs require extremely high resolution
-and power to capture these signals accurately.
-</p>
+<p>Signal amplitudes vary widely requiring high dynamic range.</p>
 </div>
 
 </div>
@@ -210,14 +196,7 @@ and power to capture these signals accurately.
 <section>
 <h2>Our Solution</h2>
 <div class="card">
-<p>
-Our design uses a <b>Modulo Sampling ADC architecture</b>.
-A comparator detects when the input exceeds reference limits,
-then a feedback loop folds the signal back into the safe voltage range.
-
-The number of folds is tracked digitally and later used to
-reconstruct the original high-dynamic-range signal.
-</p>
+<p>Modulo ADC folds signals and reconstructs them digitally.</p>
 </div>
 </section>
 
@@ -225,51 +204,65 @@ reconstruct the original high-dynamic-range signal.
 <h2>Analog Modulo Processing Pipeline</h2>
 
 <div class="pipeline">
-<div class="stage">📡<br>Input Signal</div>
-<div class="stage">⚡<br>Comparator Trigger</div>
-<div class="stage">🔄<br>Modulo Folding</div>
-<div class="stage">📉<br>ADC Quantization</div>
-<div class="stage">🧩<br>Digital Reconstruction</div>
+<div class="stage">📡 Input</div>
+<div class="stage">⚡ Compare</div>
+<div class="stage">🔄 Fold</div>
+<div class="stage">📉 Quantize</div>
+<div class="stage">🧩 Reconstruct</div>
 </div>
 
 </section>
 
 <section>
 <h2>ADC Simulation</h2>
-
 <div class="sim-box">
 <canvas id="adcChart"></canvas>
 </div>
-
 </section>
+
+<!-- SUPERVISORS -->
 
 <section>
 <h2>Project Supervisors</h2>
 
 <div class="team-grid">
-<div class="member"><div class="avatar"></div><h4>Dr. Khurram Javed</h4></div>
-<div class="member"><div class="avatar"></div><h4>Dr. Hassan Saif</h4></div>
-<div class="member"><div class="avatar"></div><h4>Prof. Dr. Rashad Ramzan</h4></div>
+
+<div class="member">
+<img src="images/khurram.jpg" class="avatar">
+<h4>Dr. Khurram Javed</h4>
 </div>
 
+<div class="member">
+<img src="images/hassan.jpg" class="avatar">
+<h4>Dr. Hassan Saif</h4>
+</div>
+
+<div class="member">
+<img src="images/rashad.jpg" class="avatar">
+<h4>Prof. Dr. Rashad Ramzan</h4>
+</div>
+
+</div>
 </section>
+
+<!-- TEAM -->
 
 <section>
 <h2>Contributors</h2>
 
 <div class="team-grid">
 
-<div class="member"><div class="avatar"></div><h4>Babar Bhutta</h4></div>
-<div class="member"><div class="avatar"></div><h4>Faisal Shahkar</h4></div>
-<div class="member"><div class="avatar"></div><h4>Fatima Akhtar</h4></div>
-<div class="member"><div class="avatar"></div><h4>Immama Arif</h4></div>
-<div class="member"><div class="avatar"></div><h4>Kinza Noreen</h4></div>
-<div class="member"><div class="avatar"></div><h4>Muhammad Arham</h4></div>
-<div class="member"><div class="avatar"></div><h4>Muhammad Umair</h4></div>
-<div class="member"><div class="avatar"></div><h4>Muhammad Zuhair</h4></div>
-<div class="member"><div class="avatar"></div><h4>Wasif Mehmood</h4></div>
-<div class="member"><div class="avatar"></div><h4>Zaki-ul-Hassan</h4></div>
-<div class="member"><div class="avatar"></div><h4>Zohaib Saleem</h4></div>
+<div class="member"><img src="images/babar.jpg" class="avatar"><h4>Babar Bhutta</h4></div>
+<div class="member"><img src="images/faisal.jpg" class="avatar"><h4>Faisal Shahkar</h4></div>
+<div class="member"><img src="images/fatima.jpg" class="avatar"><h4>Fatima Akhtar</h4></div>
+<div class="member"><img src="images/immama.jpg" class="avatar"><h4>Immama Arif</h4></div>
+<div class="member"><img src="images/kinza.jpg" class="avatar"><h4>Kinza Noreen</h4></div>
+<div class="member"><img src="images/arham.jpg" class="avatar"><h4>Muhammad Arham</h4></div>
+<div class="member"><img src="images/umair.jpg" class="avatar"><h4>Muhammad Umair</h4></div>
+<div class="member"><img src="images/zuhair.jpg" class="avatar"><h4>Muhammad Zuhair</h4></div>
+<div class="member"><img src="images/wasif.jpg" class="avatar"><h4>Wasif Mehmood</h4></div>
+<div class="member"><img src="images/zaki.jpg" class="avatar"><h4>Zaki-ul-Hassan</h4></div>
+<div class="member"><img src="images/zohaib.jpg" class="avatar"><h4>Zohaib Saleem</h4></div>
 
 </div>
 
@@ -287,20 +280,17 @@ document.querySelector("#problem").scrollIntoView({behavior:"smooth"})
 
 const ctx = document.getElementById('adcChart')
 
-const input=[]
-const folded=[]
-const quantized=[]
+const input=[], folded=[], quantized=[]
 
 for(let i=0;i<120;i++){
-let s = Math.sin(i*0.2)*4
+let s=Math.sin(i*0.2)*4
 input.push(s)
 
 let vref=1.5
-let f = ((s + vref) % (2*vref)) - vref
+let f=((s+vref)%(2*vref))-vref
 folded.push(f)
 
-let q = Math.round(f*4)/4
-quantized.push(q)
+quantized.push(Math.round(f*4)/4)
 }
 
 new Chart(ctx,{
@@ -308,18 +298,10 @@ type:'line',
 data:{
 labels:input.map((_,i)=>i),
 datasets:[
-{label:'Input Signal',data:input,borderColor:'#ef4444',borderWidth:2},
-{label:'Modulo Folded',data:folded,borderColor:'#0072ff',borderWidth:2},
-{label:'ADC Quantized',data:quantized,borderColor:'#00c853',borderWidth:2}
+{label:'Input',data:input,borderColor:'#ef4444'},
+{label:'Folded',data:folded,borderColor:'#0072ff'},
+{label:'Quantized',data:quantized,borderColor:'#00c853'}
 ]
-},
-options:{
-responsive:true,
-plugins:{legend:{labels:{color:'#0f172a'}}},
-scales:{
-x:{ticks:{color:'#0f172a'}},
-y:{ticks:{color:'#0f172a'}}
-}
 }
 })
 
