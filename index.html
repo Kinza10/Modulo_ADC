@@ -19,8 +19,8 @@ font-family:Segoe UI;
 }
 
 body{
-background:#020617;
-color:white;
+background:#f0f9ff;
+color:#0f172a;
 overflow-x:hidden;
 }
 
@@ -32,13 +32,12 @@ display:flex;
 align-items:center;
 justify-content:center;
 text-align:center;
-position:relative;
-background:radial-gradient(circle at center,#0f172a,#020617);
+background:linear-gradient(135deg,#e0f7ff,#bae6fd);
 }
 
 .hero h1{
 font-size:3.5rem;
-background:linear-gradient(90deg,#00f2fe,#4facfe);
+background:linear-gradient(90deg,#0284c7,#0ea5e9);
 -webkit-background-clip:text;
 color:transparent;
 }
@@ -46,7 +45,7 @@ color:transparent;
 .hero p{
 margin-top:15px;
 font-size:1.2rem;
-color:#94a3b8;
+color:#334155;
 }
 
 .hero button{
@@ -54,14 +53,15 @@ margin-top:30px;
 padding:14px 30px;
 border:none;
 border-radius:30px;
-background:#00d4ff;
-color:black;
+background:#0ea5e9;
+color:white;
 font-weight:bold;
 cursor:pointer;
 }
 
 .hero button:hover{
 transform:scale(1.1);
+background:#0284c7;
 }
 
 /* sections */
@@ -71,10 +71,12 @@ padding:100px 10%;
 }
 
 h2{
-color:#38bdf8;
+color:#0284c7;
 margin-bottom:25px;
 font-size:2rem;
 }
+
+/* cards */
 
 .grid{
 display:grid;
@@ -83,16 +85,17 @@ gap:25px;
 }
 
 .card{
-background:rgba(255,255,255,.05);
-border:1px solid rgba(255,255,255,.1);
+background:white;
+border:1px solid #e2e8f0;
 border-radius:12px;
 padding:30px;
 transition:.3s;
+box-shadow:0 5px 15px rgba(0,0,0,0.05);
 }
 
 .card:hover{
 transform:translateY(-10px);
-box-shadow:0 15px 35px rgba(0,200,255,.2);
+box-shadow:0 15px 30px rgba(0,150,255,.2);
 }
 
 /* pipeline */
@@ -109,17 +112,18 @@ flex:1;
 min-width:160px;
 text-align:center;
 padding:20px;
-background:rgba(0,200,255,.1);
-border:1px solid rgba(0,200,255,.3);
+background:#e0f2fe;
+border:1px solid #7dd3fc;
 border-radius:10px;
 }
 
 /* simulation */
 
 .sim-box{
-background:rgba(255,255,255,.05);
+background:white;
 padding:30px;
 border-radius:10px;
+box-shadow:0 5px 15px rgba(0,0,0,0.05);
 }
 
 /* team */
@@ -132,30 +136,34 @@ gap:25px;
 
 .member{
 text-align:center;
-background:rgba(255,255,255,.05);
+background:white;
 padding:25px;
 border-radius:10px;
 transition:.3s;
+box-shadow:0 5px 15px rgba(0,0,0,0.05);
 }
 
 .member:hover{
 transform:translateY(-8px);
+box-shadow:0 10px 25px rgba(0,150,255,.2);
 }
 
 .avatar{
 width:80px;
 height:80px;
 border-radius:50%;
-background:#334155;
+background:#bae6fd;
 margin:auto;
 margin-bottom:12px;
 }
 
+/* footer */
+
 footer{
 text-align:center;
 padding:40px;
-background:#020617;
-color:#64748b;
+background:#e0f2fe;
+color:#334155;
 }
 
 </style>
@@ -164,126 +172,88 @@ color:#64748b;
 
 <body>
 
-
 <!-- HERO -->
 
 <header class="hero">
-
 <div>
-
 <h1>Modulo Sampling ADC</h1>
-
 <p>High Dynamic Range ADC Architecture for Passive Radar</p>
-
 <button onclick="scrollToSection()">Explore Project</button>
-
 </div>
-
 </header>
-
 
 <!-- PROBLEM -->
 
 <section id="problem">
-
 <h2>The Problem</h2>
 
 <div class="grid">
 
 <div class="card">
-
 <h3>Limited Dynamic Range</h3>
-
 <p>
 Traditional ADCs clip signals when input amplitude exceeds reference voltage.
 This causes information loss in wideband signal acquisition systems.
 </p>
-
 </div>
 
 <div class="card">
-
 <h3>Passive Radar Challenge</h3>
-
 <p>
 Passive radar receives signals from broadcast transmitters which vary
 greatly in amplitude. Conventional ADCs require extremely high resolution
 and power to capture these signals accurately.
 </p>
-
 </div>
 
 </div>
-
 </section>
-
 
 <!-- SOLUTION -->
 
 <section>
-
 <h2>Our Solution</h2>
-
 <div class="card">
-
 <p>
-
 Our design uses a <b>Modulo Sampling ADC architecture</b>.
 A comparator detects when the input exceeds reference limits,
 then a feedback loop folds the signal back into the safe voltage range.
 
 The number of folds is tracked digitally and later used to
 reconstruct the original high-dynamic-range signal.
-
 </p>
-
 </div>
-
 </section>
-
 
 <!-- PIPELINE -->
 
 <section>
-
 <h2>Analog Modulo Processing Pipeline</h2>
 
 <div class="pipeline">
-
 <div class="stage">📡<br>Input Signal</div>
-
 <div class="stage">⚡<br>Comparator Trigger</div>
-
 <div class="stage">🔄<br>Modulo Folding</div>
-
 <div class="stage">📉<br>ADC Quantization</div>
-
 <div class="stage">🧩<br>Digital Reconstruction</div>
-
 </div>
 
 </section>
-
 
 <!-- SIMULATION -->
 
 <section>
-
 <h2>ADC Simulation</h2>
 
 <div class="sim-box">
-
 <canvas id="adcChart"></canvas>
-
 </div>
 
 </section>
 
-
 <!-- SUPERVISORS -->
 
 <section>
-
 <h2>Project Supervisors</h2>
 
 <div class="team-grid">
@@ -304,14 +274,11 @@ reconstruct the original high-dynamic-range signal.
 </div>
 
 </div>
-
 </section>
-
 
 <!-- TEAM -->
 
 <section>
-
 <h2>Contributors</h2>
 
 <div class="team-grid">
@@ -332,31 +299,22 @@ reconstruct the original high-dynamic-range signal.
 
 </section>
 
-
 <footer>
-
 FAST NUCES — Modulo Sampling ADC Project © 2026
-
 </footer>
-
 
 <script>
 
 /* smooth scroll */
-
 function scrollToSection(){
-
 document.querySelector("#problem").scrollIntoView({
 behavior:"smooth"
 })
-
 }
 
 /* ADC simulation */
 
 const ctx = document.getElementById('adcChart')
-
-let x = 0
 
 const input=[]
 const folded=[]
@@ -365,25 +323,19 @@ const quantized=[]
 for(let i=0;i<120;i++){
 
 let s = Math.sin(i*0.2)*4
-
 input.push(s)
 
 let vref=1.5
-
 let f = ((s + vref) % (2*vref)) - vref
-
 folded.push(f)
 
 let q = Math.round(f*4)/4
-
 quantized.push(q)
 
 }
 
 new Chart(ctx,{
-
 type:'line',
-
 data:{
 labels:input.map((_,i)=>i),
 datasets:[
@@ -391,42 +343,39 @@ datasets:[
 {
 label:'Input Signal',
 data:input,
-borderColor:'#ff4d4d',
+borderColor:'#ef4444',
 borderWidth:2
 },
 
 {
 label:'Modulo Folded',
 data:folded,
-borderColor:'#00f2fe',
+borderColor:'#0ea5e9',
 borderWidth:2
 },
 
 {
 label:'ADC Quantized',
 data:quantized,
-borderColor:'#00ff9c',
+borderColor:'#22c55e',
 borderWidth:2
 }
 
 ]
 },
-
 options:{
 responsive:true,
 plugins:{
-legend:{labels:{color:'white'}}
+legend:{labels:{color:'#0f172a'}}
 },
 scales:{
-x:{ticks:{color:'white'}},
-y:{ticks:{color:'white'}}
+x:{ticks:{color:'#0f172a'}},
+y:{ticks:{color:'#0f172a'}}
 }
 }
-
 })
 
 </script>
-
 
 </body>
 </html>
